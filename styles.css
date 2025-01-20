@@ -46,6 +46,7 @@ main {
     /* min-block-size: 100vh; */
     font-family: var(--font-Poppins);
     padding: 2.5rem;
+    background-color: var(--Color-white);
 }
 .subtitulo {
     font-size: clamp(1.5rem, 0.938rem + 2vw, 2.25rem);
