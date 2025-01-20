@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap');
+
+:root {
+    /* Colores primarias */
+    --Color-Red: rgb(234, 83, 83);
+    --Color-Cyan: rgb(69, 211, 211);
+    --Color-Orange: rgb(252, 175, 74);
+    --Color-Blue: rgb(84, 158, 242);
+    /* Colores neutrales */
+    --Color-Very-Dark-Blue: rgb(76, 78, 97);
+    --Color-Grayish-Blue: rgb(163, 165, 174);
+    --shadow-Grayish-Blue: rgba(163, 165, 174, 0.5);
+    --Color-white: rgb(250, 250, 250);
+
+    /* Tipografia */
+    --font-Poppins: 'Poppins';
+
+    --weigth-Extra-Light: 200;
+    --weigth-Regular: 400;
+    --weigth-Medium: 500;
+    --weigth-Semi-Bold: 600;
+
+    --letter-spacing-1: 0.5%;
+    --letter-spacing-2: 1%;
+    --letter-spacing-3: 5%;
+
+    --line-height-1: 170%;
+    --line-height-2: 200%;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* min-block-size: 100vh; */
+    font-family: var(--font-Poppins);
+    padding: 2.5rem;
+}
+.subtitulo {
+    font-size: clamp(1.5rem, 0.938rem + 2vw, 2.25rem);
+    text-align: center;
+    font-weight: var(--weigth-Extra-Light);
+    letter-spacing: var(--letter-spacing-1);
+    color: var(--Color-Grayish-Blue);
+}
+h1 {
+    /*                 24px,    15px + 2vw,    36px */
+    font-size: clamp(1.5rem, 0.938rem + 2vw, 2.25rem);
+    text-align: center;
+    font-weight: var(--weigth-Semi-Bold);
+    letter-spacing: var(--letter-spacing-2);
+    color: var(--Color-Very-Dark-Blue);
+}
+.card__descripcionGeneral {
+    /*                 12px,    4px + 1.5vw,    15px */
+    font-size: clamp(0.75rem, 0.25rem + 1.5vw, 0.938rem);
+    text-align: center;
+    line-height: var(--line-height-1);
+    max-inline-size: 31.875rem;
+    padding: 1.25em 0;
+    font-weight: var(--weigth-Medium);
+    color: var(--Color-Grayish-Blue);
+}
+/* Contenedor grid de la las tarjetas */
+.card--gridContenedor {
+    max-inline-size: 69rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0 1.25rem;
+}
+/* Caracteristicas en comun de las tarjetas */
+.card__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: clamp(0.938rem, 0.75rem + 1.5vw, 2rem);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.75rem 0.938rem var(--shadow-Grayish-Blue);
+    color: var(--Color-Grayish-Blue);
+}
+.card__item h3 {
+    font-size: clamp(0.75rem, 0.25rem + 1.5vw, 1.25rem);
+    font-weight: var(--weigth-Semi-Bold);
+    color: var(--Color-Very-Dark-Blue);
+}
+.card__item p {
+    font-size: clamp(0.25rem, 0.125rem + 1vw, 0.75rem);
+    line-height: var(--line-height-2);
+    letter-spacing: var(--letter-spacing-3);
+}
+.card__item--imagen img {
+    max-inline-size: clamp(1.25rem, 1rem + 3vw, 4rem);
+    align-self: flex-end;
+    margin-block-start: clamp(0.938rem, 0.75rem + 1.5vw, 2rem);
+}
+/* Posicionamiento y caracteristicas individuales de las tarjetas */
+.card__item--supervisor {
+    grid-area: 2 / 1 / 4 / 2;
+    border-top: 0.25rem solid var(--Color-Cyan);
+}
+.card__item--teamBuilder {
+    grid-area: 1 / 2 / 3 / 3;
+    border-top: 0.25rem solid var(--Color-Red);
+    margin-block-end: 0.625rem;
+}
+.card__item--karma {
+    grid-area: 3 / 2 / 5 / 3;
+    border-top: 0.25rem solid var(--Color-Orange);
+    margin-block-start: 0.625rem;
+}
+.card__item--calculator {
+    grid-area: 2 / 3 / 4 / 4;
+    border-top: 0.25rem solid var(--Color-Blue);
+}
+/* Responsividad */
+@media screen and (max-width: 500px) {
+    .card--gridContenedor {
+        max-inline-size: 19.125rem;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 1.25rem 0;
+    }
+    .card__item h3 {
+        font-size: clamp(0.75rem, 0.25rem + 3.3vw, 1.75rem);
+    }
+    .card__item p {
+        font-size: clamp(0.25rem, 0.125rem + 2vw, 1rem);
+    }
+    .card__item--imagen img {
+        max-inline-size: clamp(1.25rem, 1.5rem + 3vw, 4rem);
+    }
+    .card__item--supervisor {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    .card__item--teamBuilder {
+        grid-area: 2 / 1 / 3 / 2;
+        margin: 0;
+    }
+    .card__item--karma {
+        grid-area: 3 / 1 / 4 / 2;
+        margin: 0;
+    }
+    .card__item--calculator {
+        grid-area: 4 / 1 / 5 / 2;
+    }
+}
+@media screen and (max-width: 375px) {
+    .subtitulo {
+        font-size: clamp(1rem, 0.75rem + 2vw, 2.25rem);
+    }
+    h1 {
+        font-size: clamp(1rem, 0.75rem + 2vw, 2.25rem);
+    }
+}
